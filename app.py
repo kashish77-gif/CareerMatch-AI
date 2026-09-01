@@ -97,9 +97,17 @@ with input_col1:
 
     resume = st.file_uploader(
         "Upload your resume",
-        type=["pdf", "docx"]
+        type=["pdf", "docx"],
+        help="Maximum file size: 5 MB"
     )
 
+    MAX_FILE_SIZE = 5 * 1024 * 1024
+
+    if resume is not None and resume.size > MAX_FILE_SIZE:
+        st.error(
+            "Resume file is too large. Please upload a file smaller than 5 MB."
+        )
+        resume = None
 
 with input_col2:
 
