@@ -1,0 +1,102 @@
+[
+    {
+        "title": "Data Analyst Intern",
+        "description": "Analyze datasets, clean data, perform exploratory data analysis, create reports and dashboards, and communicate insights.",
+        "skills": [
+            "python",
+            "sql",
+            "pandas",
+            "numpy",
+            "data analysis",
+            "data visualization",
+            "power bi",
+            "excel",
+            "statistics"
+        ]
+    },
+    {
+        "title": "Machine Learning Intern",
+        "description": "Build and evaluate machine learning models, preprocess datasets, perform feature engineering, and develop predictive solutions.",
+        "skills": [
+            "python",
+            "machine learning",
+            "scikit-learn",
+            "pandas",
+            "numpy",
+            "statistics",
+            "data analysis",
+            "git"
+        ]
+    },
+    {
+        "title": "Data Science Intern",
+        "description": "Work on data preprocessing, exploratory data analysis, statistical analysis, machine learning, and visualization.",
+        "skills": [
+            "python",
+            "sql",
+            "pandas",
+            "numpy",
+            "machine learning",
+            "statistics",
+            "data analysis",
+            "data visualization",
+            "jupyter notebook"
+        ]
+    },
+    {
+        "title": "Python Developer Intern",
+        "description": "Develop Python applications, build APIs, work with databases, write clean code, and use version control.",
+        "skills": [
+            "python",
+            "sql",
+            "git",
+            "github",
+            "fastapi",
+            "rest api",
+            "docker"
+        ]
+    },
+    {
+        "title": "AI Engineer Intern",
+        "description": "Develop artificial intelligence solutions using machine learning, deep learning, natural language processing, and modern AI frameworks.",
+        "skills": [
+            "python",
+            "machine learning",
+            "deep learning",
+            "artificial intelligence",
+            "tensorflow",
+            "pytorch",
+            "numpy",
+            "pandas",
+            "git"
+        ]
+    },
+    {
+        "title": "NLP Intern",
+        "description": "Develop natural language processing applications including text preprocessing, classification, sentiment analysis, and language models.",
+        "skills": [
+            "python",
+            "machine learning",
+            "natural language processing",
+            "deep learning",
+            "pandas",
+            "numpy",
+            "scikit-learn",
+            "tensorflow",
+            "pytorch"
+        ]
+    },
+    {
+        "title": "Business Intelligence Intern",
+        "description": "Create dashboards, analyze business data, generate reports, and communicate data-driven insights to stakeholders.",
+        "skills": [
+            "sql",
+            "power bi",
+            "tableau",
+            "excel",
+            "data analysis",
+            "data visualization",
+            "statistics"
+        ]
+    }
+]
