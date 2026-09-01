@@ -11,6 +11,7 @@ from src.skill_gap import generate_skill_gap_report
 from src.resume_improver import generate_resume_improvement_suggestions
 from src.job_recommender import recommend_jobs
 from src.ats_analyzer import calculate_ats_score
+from src.report_generator import generate_report
 
 
 st.set_page_config(
@@ -884,3 +885,36 @@ if analyze:
                     "ATS Score",
                     f"{ats_score:.1f}%"
                 )
+
+
+            # ==================================================
+            # DOWNLOAD ANALYSIS REPORT
+            # ==================================================
+
+            st.divider()
+
+            st.header("Download Analysis Report")
+
+
+            report = generate_report(
+                overall_score=overall_score,
+                ats_score=ats_score,
+                skill_score=skill_score,
+                semantic_score=semantic_score,
+                matched_skills=matched_skills,
+                missing_skills=missing_skills,
+                required_missing=required_missing,
+                preferred_missing=preferred_missing,
+                recommendations=recommendations,
+                resume_suggestions=resume_suggestions,
+                ats_suggestions=ats_suggestions
+            )
+
+
+            st.download_button(
+                label="Download Analysis Report",
+                data=report,
+                file_name="CareerMatch_AI_Report.txt",
+                mime="text/plain",
+                use_container_width=True
+            )

@@ -1,5 +1,8 @@
 import json
 
+from src.skill_extractor import extract_skills
+from src.semantic_matcher import calculate_semantic_similarity
+
 
 def load_jobs():
 
@@ -14,7 +17,7 @@ def load_jobs():
     return jobs
 
 
-def recommend_jobs(resume_skills):
+def recommend_jobs(resume_text, resume_skills):
 
     jobs = load_jobs()
 
@@ -32,6 +35,10 @@ def recommend_jobs(resume_skills):
             for skill in job["skills"]
         }
 
+        # --------------------------------------------------
+        # Skill Matching
+        # --------------------------------------------------
+
         matched_skills = (
             resume_skills_lower &
             job_skills
@@ -39,25 +46,67 @@ def recommend_jobs(resume_skills):
 
         if job_skills:
 
-            match_score = (
+            skill_score = (
                 len(matched_skills)
                 / len(job_skills)
             ) * 100
 
         else:
 
-            match_score = 0
+            skill_score = 0
+
+
+        # --------------------------------------------------
+        # Semantic Matching
+        # --------------------------------------------------
+
+        job_text = (
+            job["title"]
+            + " "
+            + job["description"]
+            + " "
+            + " ".join(job["skills"])
+        )
+
+        semantic_score = calculate_semantic_similarity(
+            resume_text,
+            job_text
+        )
+
+
+        # --------------------------------------------------
+        # Recommendation Score
+        # --------------------------------------------------
+
+        recommendation_score = (
+            (skill_score * 0.6)
+            +
+            (semantic_score * 0.4)
+        )
+
 
         recommendations.append(
             {
                 "title": job["title"],
+
                 "description": job["description"],
-                "score": match_score,
+
+                "score": recommendation_score,
+
+                "skill_score": skill_score,
+
+                "semantic_score": semantic_score,
+
                 "matched_skills": sorted(
                     matched_skills
                 )
             }
         )
+
+
+    # --------------------------------------------------
+    # Sort Jobs By Recommendation Score
+    # --------------------------------------------------
 
     recommendations.sort(
         key=lambda job: job["score"],

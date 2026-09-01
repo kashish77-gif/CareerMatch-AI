@@ -1,6 +1,7 @@
 venv/
 .venv/
 
+uploads/
 __pycache__/
 *.pyc
 
@@ -12,4 +13,6 @@ __pycache__/
 .vscode/
 .idea/
 
+
 .DS_Store
+uploads/
